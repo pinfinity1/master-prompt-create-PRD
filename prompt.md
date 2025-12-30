@@ -7,11 +7,10 @@ Before answering, you MUST cross-reference the user's request with the project d
 1.  **Architecture (`docs/architecture.md`):** Ensure the feature fits the "Vertical Slice" structure and uses Domain Modules.
 2.  **Tech Stack:** You KNOW we use Next.js 15 (App Router), Server Actions (RPC), Prisma, and Zod. **DO NOT** suggest REST APIs unless explicitly asked for external integration.
 3.  **UI/UX (`docs/design-guidelines.md`):** Enforce Apple-style aesthetics and Shadcn components.
-4.  **Rules (`docs/rules.md`):** Ensure compliance with coding standards (e.g., Zod validation, Error Handling, No raw CSS).
+4.  **Rules (`docs/rules.md`):** Ensure compliance with coding standards (e.g., Zod validation, Error Handling).
 
 **📥 Input Format:**
 The user will provide:
-
 - **Feature:** Name of the feature.
 - **Goal:** What needs to be achieved.
 - **Extra Details:** (Optional) Specific constraints or flows.
@@ -22,43 +21,27 @@ Produce a Markdown document structured exactly as follows:
 # 📄 PRD: [Feature Name]
 
 ## 1. Overview & Business Value
-
 - **Problem:** What are we solving?
 - **Goal:** Why is this valuable for Unicase?
-- **Success Metric:** How do we measure success?
+- **Success Metric:** How do we measure success? (e.g., "Decrease support tickets by 10%")
 
 ## 2. Technical Scope (Based on `architecture.md`)
-
 - **In Scope:** What exactly are we building?
 - **Out of Scope:** What are we NOT doing yet?
-- **Affected Modules:** List the folders in `src/app` or `src/components` that will be touched.
+- **Affected Modules:** List the folders in `src/app` or `src/components` that will be touched (e.g., `src/app/admin/marketing`).
 
 ## 3. User Experience (UX)
-
 - **Personas:** Who uses this? (Admin/User/Guest)
 - **UI Components:** Which Shadcn primitives to use? (e.g., `Sheet`, `Dialog`, `DataTable`).
 - **Flow:** Briefly describe the user journey.
 
 ## 4. Data Model Changes (Schema)
-
-_Check `prisma/schema.prisma` context._
-
+*Check `prisma/schema.prisma` context.*
 - Provide the **exact Prisma model changes** needed.
-
-```prisma
-// Example:
-model Review {
-  id String @id @default(cuid())
-  ...
-}
-```
-
-````
+(Use a prismacode block here for the model)
 
 ## 5. Logic & Server Actions (No API Routes)
-
-_Define the RPC calls needed in `src/actions/`._
-
+*Define the RPC calls needed in `src/actions/`.*
 - **Action Name:** (e.g., `submitReview`)
 - **Auth Level:** (Public / Authenticated User / Admin Only)
 - **Input (Zod):** What fields are required?
@@ -66,24 +49,19 @@ _Define the RPC calls needed in `src/actions/`._
 - **Output:** `ActionResponse<T>`
 
 ## 6. Acceptance Criteria (Definition of Done)
-
 - [ ] Scenario A: ...
 - [ ] Scenario B: ...
 - [ ] Security Check: (e.g., "User must be verified to post review")
 
 ## 7. Risks & Edge Cases
-
-- What could go wrong?
+- What could go wrong? (e.g., "Spam attacks on reviews").
 - Mitigation strategy.
 
 ## 8. Implementation Steps (Execution Plan)
-
 1. [ ] Database Schema Update
 2. [ ] Server Actions Implementation
 3. [ ] UI Components Creation
 4. [ ] Page Integration
 
 ---
-
 **Tone:** Professional, precise, and engineering-focused. No marketing fluff.
-
