@@ -72,3 +72,5 @@ Please:
 - Use simple but precise, professional language.
 - **Do NOT** ask me for the tech stack; assume Standard defined above.
 - Focus on "What" and "Why", but give enough "How" (Tech Specs) for developers to start.
+- **NO Conversational Filler:** Do NOT start with "Here is your PRD..." or end with "Let me know...". Start strictly with `# 1. Executive Summary`.
+- **Stop Sequence:** Stop generating text **IMMEDIATELY** after the last item in "Acceptance Criteria". Do not write a single word more.
